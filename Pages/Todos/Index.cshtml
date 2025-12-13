@@ -1,0 +1,54 @@
+@page
+@model MyTodoApp.Pages_Todos.IndexModel
+
+@{
+    ViewData["Title"] = "My Tasks";
+}
+
+<div class="max-w-3xl mx-auto mt-10">
+    
+    <div class="flex justify-between items-center mb-8">
+        <div>
+            <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight">Tasks</h1>
+            <p class="text-gray-500 mt-1">Manage your daily goals</p>
+        </div>
+        <a asp-page="Create" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
+            + New Task
+        </a>
+    </div>
+
+    <div class="space-y-4">
+        @foreach (var item in Model.TodoItem) {
+            <div class="group flex items-center justify-between bg-white p-5 rounded-xl shadow-sm hover:shadow-md border border-gray-100 transition-all duration-200">
+                
+                <div class="flex items-center space-x-4">
+                    <div class="@(item.IsCompleted ? "bg-green-100 text-green-600" : "bg-gray-100 text-gray-400") p-2 rounded-full">
+                        @if(item.IsCompleted)
+                        {
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        }
+                        else
+                        {
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        }
+                    </div>
+
+                    <div>
+                        <h2 class="text-lg font-semibold @(item.IsCompleted ? "line-through text-gray-400" : "text-gray-800")">
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    <a asp-page="./Edit" asp-route-id="@item.Id" class="text-indigo-600 hover:text-indigo-900 font-medium text-sm bg-indigo-50 px-3 py-1 rounded-md">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="text-red-600 hover:text-red-900 font-medium text-sm bg-red-50 px-3 py-1 rounded-md">Delete</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

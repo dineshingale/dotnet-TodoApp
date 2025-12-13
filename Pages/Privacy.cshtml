@@ -1,0 +1,37 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<div class="max-w-3xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+        <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            @ViewData["Title"]
+        </h1>
+        <p class="mt-4 text-lg text-gray-500">
+            Last updated: @DateTime.Now.ToString("MMMM dd, yyyy")
+        </p>
+    </div>
+
+    <div class="prose prose-indigo prose-lg text-gray-500 mx-auto">
+        <p>
+            Your privacy is important to us. It is MyTodoApp's policy to respect your privacy regarding any information we may collect from you across our website.
+        </p>
+
+        <h3 class="text-gray-900 font-bold text-xl mt-8 mb-4">1. Information We Collect</h3>
+        <p>
+            We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent.
+        </p>
+
+        <h3 class="text-gray-900 font-bold text-xl mt-8 mb-4">2. How We Use Information</h3>
+        <p>
+            We strictly use your data to provide the services you have requested (managing your To-Do list). We do not share any personally identifying information publicly or with third-parties, except when required to by law.
+        </p>
+        
+        <h3 class="text-gray-900 font-bold text-xl mt-8 mb-4">3. Contact Us</h3>
+        <p>
+            If you have any questions about how we handle user data and personal information, feel free to contact us.
+        </p>
+    </div>
+</div>

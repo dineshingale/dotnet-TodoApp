@@ -1,0 +1,65 @@
+@page
+@model MyTodoApp.Pages_Todos.DetailsModel
+
+@{
+    ViewData["Title"] = "Task Details";
+}
+
+<div class="max-w-lg mx-auto mt-16 px-4">
+    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+        
+        <div class="bg-indigo-600 px-6 py-4">
+            <h1 class="text-xl font-bold text-white">Task Details</h1>
+            <p class="text-indigo-100 text-sm">View specific information about this task</p>
+        </div>
+
+        <div class="p-6">
+            <dl class="space-y-6">
+                <div>
+                    <dt class="text-sm font-medium text-gray-500 uppercase tracking-wide">
+                        Task Title
+                    </dt>
+                    <dd class="mt-1 text-2xl font-semibold text-gray-900">
+                        @Html.DisplayFor(model => model.TodoItem.Title)
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">
+                        Current Status
+                    </dt>
+                    <dd>
+                        @if (Model.TodoItem.IsCompleted)
+                        {
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                <svg class="-ml-1 mr-1.5 h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Completed
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
+                                <svg class="-ml-1 mr-1.5 h-4 w-4 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                Pending
+                            </span>
+                        }
+                    </dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="bg-gray-50 px-6 py-4 flex items-center justify-between border-t border-gray-100">
+            <a asp-page="./Index" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                ← Back to List
+            </a>
+            
+            <a asp-page="./Edit" asp-route-id="@Model.TodoItem.Id" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
+                Edit Task
+            </a>
+        </div>
+    </div>
+</div>
