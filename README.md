@@ -28,7 +28,7 @@ It demonstrates a modern integration pattern: utilizing **Razor Pages** for serv
 
 1.  **Clone the repository**
     ```bash
-    git clone [https://github.com/yourusername/MyTodoApp.git](https://github.com/yourusername/MyTodoApp.git)
+    git clone [https://github.com/dineshingale/MyTodoApp.git](https://github.com/dineshingale/MyTodoApp.git)
     cd MyTodoApp
     ```
 
@@ -45,7 +45,12 @@ It demonstrates a modern integration pattern: utilizing **Razor Pages** for serv
 
 ## 📸 Usage
 
-The application supports full CRUD operations:
-* **Dashboard:** View all active and completed tasks in a grid layout.
-* **Management:** detailed Create and Edit forms with validation feedback.
-* **Safety:** Dedicated confirmation views for destructive actions (Delete)
+The application supports full CRUD operations with a focus on clean UI.
+
+### Dashboard
+*View all active and completed tasks in a responsive grid layout.*
+![Dashboard View](screenshots/dashboard.png)
+
+### Safety Features
+*Dedicated confirmation views for destructive actions (Delete) to prevent accidental data loss.*
+![Delete Confirmation](screenshots/delete_task.png)
