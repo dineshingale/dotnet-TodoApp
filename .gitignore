@@ -1,0 +1,21 @@
+# Build results
+bin/
+obj/
+
+# Editor settings (VS Code & Visual Studio)
+.vscode/
+.vs/
+*.user
+
+# Database (SQLite)
+# We ignore these so we don't overwrite the live DB with our local test one
+*.db
+*.db-shm
+*.db-wal
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
